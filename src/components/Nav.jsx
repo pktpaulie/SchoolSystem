@@ -15,6 +15,8 @@ import StaffForm from './StaffForm'
 import Course from './Course'
 import CourseForm from './CourseForm'
 import Student from './Student'
+import Department from './Department';
+import DepartmentForm from './DepartmentForm';
 import Students from './Students'
 
 export default function Nav() {
@@ -30,6 +32,8 @@ export default function Nav() {
       <Link to={"/courseform"}>CourseForm</Link>
       <Link to={"/club"}>Club</Link> 
       <Link to={"/clubform"}>ClubForm</Link>
+      <Link to={"/department"}>Department</Link> 
+      <Link to={"/departmentform"}>DepartmentForm</Link> 
       
         <Routes>
           <Route path='/' element={<h1>Homepage</h1>}></Route>
@@ -37,7 +41,8 @@ export default function Nav() {
           <Route path='/staffform' element={<StaffForm />}></Route>
           <Route path='/student' element={<Student />}></Route>
           <Route path='/students' element={<Students />}></Route>
-          {/*<Route path='/department' element={<Department />}></Route>*/}
+          <Route path='/department' element={<Department />}></Route>
+          <Route path='/departmentform' element={<DepartmentForm />}></Route>
           <Route path='/course' element={<Course />}></Route> 
           <Route path='/courseform' element={<CourseForm />}></Route> 
           <Route path='/club' element={<Club />}></Route>
