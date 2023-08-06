@@ -12,6 +12,7 @@ import Staff from './Staff'
 import Club from './Club'
 import StaffForm from './StaffForm'
 import Course from './Course'
+import Student from './Student'
 
 export default function Nav() {
   return (
@@ -20,7 +21,7 @@ export default function Nav() {
       <Link to={"/staff"}>Staff</Link>
       <Link to={"/staffform"}>StaffForm</Link>
       <Link to={"/department"}>Department</Link>
-      <Link to={"/students"}>Students</Link>
+      <Link to={"/student"}>Student</Link>
       <Link to={"/courses"}>Course</Link>
       <Link to={"/club"}>Clubs</Link> 
       
@@ -28,8 +29,8 @@ export default function Nav() {
           <Route path='/' element={<h1>Homepage</h1>}></Route>
           <Route path='/staff' element={<Staff />}></Route>
           <Route path='/staffform' element={<StaffForm />}></Route>
-          {/* <Route path='/student' element={<Student />}></Route>
-          <Route path='/department' element={<Department />}></Route>*/}
+           <Route path='/student' element={<Student />}></Route>
+          {/*<Route path='/department' element={<Department />}></Route>*/}
           <Route path='/courses' element={<Course />}></Route> 
           <Route path='/club' element={<Club />}></Route>
 
