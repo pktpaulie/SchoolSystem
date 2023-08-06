@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const API_URL = 'https://school-api-2wqk.onrender.com/api/staffs/';
+const API_URL = 'https://school-api-2wqk.onrender.com/api/staff/';
 
 const StaffForm = () => {
   const [formData, setFormData] = useState({
