@@ -7,18 +7,13 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div>
-      <Navbar/>
-      <Clubs/>
-      <hr/>
-      <Routes>
-        <Route path = '/Clubs' element={<Clubs/>}/>
-      </Routes>
-    </div>
-    /*{
-      <>
+    <>
       <div>
         <Nav/>
+
+        <Routes>
+          <Route path = '/Clubs' element={<Clubs/>}/>
+        </Routes>
       </div>
     </>
   )
