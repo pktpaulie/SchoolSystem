@@ -1,5 +1,13 @@
 import React from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import ReactDOM from "react-dom/client";
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+//import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Staff from './Staff'
 import Club from './Club'
 import StaffForm from './StaffForm'
@@ -9,13 +17,41 @@ export default function Nav() {
     <div>
       <Link to={"/"}>Homepage</Link>
       <Link to={"/staff"}>Staff</Link>
-      <Link to={"/club"}>staff-form</Link>
-      <Link to={"/department"}>department</Link>
-      <Routes>
-        <Route path='/' element={<h1>Homepage</h1>}></Route>
-        <Route path='/staff' element={<Staff />}></Route>
-        <Route path='/club' element={<Club />}></Route>
-      </Routes>
+      <Link to={"/staffform"}>Staff Form</Link>
+      <Link to={"/department"}>Department</Link>
+      <Link to={"/students"}>Students</Link>
+      <Link to={"/courses"}>Courses</Link>
+      <Link to={"/club"}>Clubs</Link> 
+      
+        <Routes>
+          <Route path='/' element={<h1>Homepage</h1>}></Route>
+          <Route path='/staff' element={<Staff />}></Route>
+          <Route path='/staffform' element={<StaffForm />}></Route>
+          {/* <Route path='/student' element={<Student />}></Route>
+          <Route path='/department' element={<Department />}></Route>
+          <Route path='/courses' element={<Courses />}></Route> */}
+          <Route path='/club' element={<Club />}></Route>
+
+        </Routes> 
+      
+      
     </div>
-  )
+  );
 }
+
+ 
+/*export default function Nav() {
+  return(
+    <div>
+      <nav class="navbar navbar-light bg-dark">
+        <a class="navbar-brand" href={"/"}>Home</a>
+        <a class="navbar-brand" href={"/staff"}>Staff</a>
+        <a class="navbar-brand" Link to={"/students"}>Students</a>
+        <a class="navbar-brand" Link to={"/department"}>Departments</a>
+        <a class="navbar-brand" Link to={"/courses"}>Courses</a>
+        <a class="navbar-brand" Link to={"/club"}>Clubs</a>
+        </nav>
+    </div>
+    
+  );
+};*/

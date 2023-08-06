@@ -6,16 +6,16 @@ const Club = () => {
   const [club, setClub] = useState(null);
 
   useEffect(() => {
-    fetchStaffData();
+    fetchClubData();
   }, []);
 
-  const fetchStaffData = async () => {
+  const fetchClubData = async () => {
     try {
       const response = await fetch(API_URL);
       const data = await response.json();
-      setStaffData(data.results);
+      setClubData(data.results);
     } catch (error) {
-      console.error('Error fetching staff data:', error);
+      console.error('Error fetching club data:', error);
     }
   };
 
@@ -23,14 +23,14 @@ const Club = () => {
     <div>
       {club ? (
         <ul>
-          {staffData.map((staff) => (
-            <li key={staff.id}>
-              {staff.first_name} {staff.second_name} - {staff.gender} - {staff.age} - {staff.email} - {staff.department}
+          {clubData.map((club) => (
+            <li key={club.id}>
+              {club.club_name} - {club.head_of_club}
             </li>
           ))}
         </ul>
       ) : (
-        <p>Loading staff data...</p>
+        <p>Loading club data...</p>
       )}
     </div>
   );
