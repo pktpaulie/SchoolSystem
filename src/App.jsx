@@ -1,13 +1,28 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+// import './App.css'
+//import Counter from './components/Counter'
+import Counter from './components/Clubs'
+
+// routers
+import {BrowserRoutes, Routes, Route} from 'react-router-dom'
+import Navbar from './Navigation/Navbar'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div>
+      <Navbar/>
+      <Clubs/>
+      <hr/>
+      <Routes>
+        <Route path = '/Clubs' element={<Clubs/>}/>
+      </Routes>
+    </div>
+    /*{
+      <>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -28,7 +43,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </> }*/
   )
 }
 
