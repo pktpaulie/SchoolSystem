@@ -1,6 +1,7 @@
 import React from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import Staff from './Staff'
+import Club from './Club'
 import StaffForm from './StaffForm'
 
 export default function Nav() {

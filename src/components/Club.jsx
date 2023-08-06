@@ -36,4 +36,4 @@ const Club = () => {
   );
 };
 
-export default Staff;
+export default Club;
