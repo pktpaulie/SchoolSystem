@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 const ClubForm = () => {
-  const [courseName, setCourseName] = useState('');
-  const [courseCode, setCourseCode] = useState('');
+  const [clubName, setClubName] = useState('');
+  const [headOfClub, setHeadOfClub] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -10,7 +10,7 @@ const ClubForm = () => {
     // Create a data object with the form values
     const newClub = {
       club_name: clubName,
-      head_of_club: clubHeadOfClub,
+      head_of_club: headOfClub,
     };
 
     try {
@@ -45,7 +45,7 @@ const ClubForm = () => {
         <input type="text" value={headOfClub} onChange={(e) => setHeadOfClub(e.target.value)} required />
       </div>
       
-      <button type="submit">Submit</button>
+      <button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}>Create New Club</button>
     </form>
   );
 };

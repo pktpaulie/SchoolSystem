@@ -58,7 +58,7 @@ const Course = () => {
         <label>Duration:</label>
         <input type="text" value={duration} onChange={(e) => setDuration(e.target.value)} required />
       </div>
-      <button type="submit">Submit</button>
+      <button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}>Create New Course</button>
     </form>
   );
 };

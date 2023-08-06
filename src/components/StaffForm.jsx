@@ -109,7 +109,7 @@ const StaffForm = () => {
           onChange={handleInputChange}
         />
       </div>
-      <button type="submit">Submit</button>
+      <button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}>Creat New Staff Member</button>
     </form>
   );
 };

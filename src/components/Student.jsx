@@ -69,7 +69,7 @@ const Student = () => {
           onChange={handleInputChange}
         />
       </div>
-      <Button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}> Register Student </Button>
+      <button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}> Register Student </button>
 
     
        
