@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const API_URL = 'https://school-api-2wqk.onrender.com/api/staff/';
+const API_URL = 'https://school-api-2wqk.onrender.com/api/staffs/';
 
 const StaffForm = () => {
   const [formData, setFormData] = useState({
@@ -49,9 +49,9 @@ const StaffForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="first_name">First Name:</label>
-        <input
+      <div style={{margin: "22px 35px"}}>
+        <label htmlFor="first_name">First Name</label><br />
+        <input style={{height: "28px", width: "250px", border: "2px solid rgba(255, 255, 255", margin: "10px 0px", borderRadius: "5px"}}
           type="text"
           id="first_name"
           name="first_name"
@@ -59,9 +59,9 @@ const StaffForm = () => {
           onChange={handleInputChange}
         />
       </div>
-      <div>
-        <label htmlFor="second_name">Second Name:</label>
-        <input
+      <div style={{margin: "22px 35px"}}>
+        <label htmlFor="second_name">Second Name</label><br />
+        <input style={{height: "28px", width: "250px", border: "1.5px solid rgba(255, 255, 255", margin: "10px 0px", borderRadius: "5px"}}
           type="text"
           id="second_name"
           name="second_name"
@@ -69,9 +69,9 @@ const StaffForm = () => {
           onChange={handleInputChange}
         />
       </div>
-      <div>
-        <label htmlFor="gender">Gender:</label>
-        <input
+      <div style={{margin: "22px 35px"}}>
+        <label htmlFor="gender">Gender</label><br />
+        <input style={{height: "28px", width: "250px", border: "1.5px solid rgba(255, 255, 255", margin: "10px 0px", borderRadius: "5px"}}
           type="text"
           id="gender"
           name="gender"
@@ -79,9 +79,9 @@ const StaffForm = () => {
           onChange={handleInputChange}
         />
       </div>
-      <div>
-        <label htmlFor="age">Age:</label>
-        <input
+      <div style={{margin: "22px 35px"}}>
+        <label htmlFor="age">Age</label><br />
+        <input style={{height: "28px", width: "250px", border: "1.5px solid rgba(255, 255, 255", margin: "10px 0px", borderRadius: "5px"}}
           type="number"
           id="age"
           name="age"
@@ -89,9 +89,9 @@ const StaffForm = () => {
           onChange={handleInputChange}
         />
       </div>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
+      <div style={{margin: "22px 35px"}}>
+        <label htmlFor="email">Email</label><br />
+        <input style={{height: "28px", width: "250px", border: "1.5px solid rgba(255, 255, 255", margin: "10px 0px", borderRadius: "5px"}}
           type="email"
           id="email"
           name="email"
@@ -99,9 +99,9 @@ const StaffForm = () => {
           onChange={handleInputChange}
         />
       </div>
-      <div>
-        <label htmlFor="department">Department:</label>
-        <input
+      <div style={{margin: "22px 35px"}}>
+        <label htmlFor="department">Department</label><br />
+        <input style={{height: "28px", width: "250px", border: "1.5px solid rgba(255, 255, 255", margin: "10px 0px", borderRadius: "5px"}}
           type="text"
           id="department"
           name="department"
@@ -109,7 +109,7 @@ const StaffForm = () => {
           onChange={handleInputChange}
         />
       </div>
-      <button type="submit">Submit</button>
+      <button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}>Creat New Staff Member</button>
     </form>
   );
 };

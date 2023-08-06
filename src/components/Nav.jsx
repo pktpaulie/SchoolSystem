@@ -11,10 +11,8 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Staff from './Staff'
 import Club from './Club'
 import StaffForm from './StaffForm'
-import Course from './Course'
+import Course from './CourseForm'
 import Student from './Student'
-import Students from './Students';
-import Department from './Department';
 
 export default function Nav() {
   return (
@@ -24,7 +22,6 @@ export default function Nav() {
       <Link to={"/staffform"}>StaffForm</Link>
       <Link to={"/department"}>Department</Link>
       <Link to={"/student"}>Student</Link>
-      <Link to={"/students"}>Available-Student</Link>
       <Link to={"/courses"}>Course</Link>
       <Link to={"/club"}>Clubs</Link> 
       
@@ -33,23 +30,13 @@ export default function Nav() {
           <Route path='/staff' element={<Staff />}></Route>
           <Route path='/staffform' element={<StaffForm />}></Route>
            <Route path='/student' element={<Student />}></Route>
-           <Route path='/students' element={<Students />}></Route>
-           <Route path='/department' element={<Department />}></Route> 
+          {/*<Route path='/department' element={<Department />}></Route>*/}
           <Route path='/courses' element={<Course />}></Route> 
           <Route path='/club' element={<Club />}></Route>
+          <Route path='/clubform' element={<ClubForm />}></Route>
 
         </Routes> 
       
-      
-      {/* <Link to={"/club"}>staff-form</Link>
-      <Link to={"/department"}>department</Link>
-      <Link to={"/course"}>Course</Link>
-      <Routes>
-        <Route path='/' element={<h1>Homepage</h1>}></Route>
-        <Route path='/staff' element={<Staff />}></Route>
-        <Route path='/club' element={<Club />}></Route>
-        <Route path='/course' element={<Course />}></Route>
-      </Routes> */}
     </div>
   );
 }
