@@ -10,10 +10,6 @@ function App() {
     <>
       <div>
         <Nav/>
-
-        <Routes>
-          <Route path = '/Clubs' element={<Clubs/>}/>
-        </Routes>
       </div>
     </>
   )
