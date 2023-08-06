@@ -28,13 +28,22 @@ export default function Nav() {
           <Route path='/staff' element={<Staff />}></Route>
           <Route path='/staffform' element={<StaffForm />}></Route>
           {/* <Route path='/student' element={<Student />}></Route>
-          <Route path='/department' element={<Department />}></Route>
-          <Route path='/courses' element={<Courses />}></Route> */}
+          <Route path='/department' element={<Department />}></Route>*/}
+          <Route path='/courses' element={<Courses />}></Route> 
           <Route path='/club' element={<Club />}></Route>
 
         </Routes> 
       
       
+      <Link to={"/club"}>staff-form</Link>
+      <Link to={"/department"}>department</Link>
+      <Link to={"/course"}>Course</Link>
+      <Routes>
+        <Route path='/' element={<h1>Homepage</h1>}></Route>
+        <Route path='/staff' element={<Staff />}></Route>
+        <Route path='/club' element={<Club />}></Route>
+        <Route path='/course' element={<Course />}></Route>
+      </Routes>
     </div>
   );
 }
