@@ -23,8 +23,8 @@ export default function Nav() {
       <Link to={"/staffform"}>StaffForm</Link>
       <Link to={"/department"}>Department</Link>
       <Link to={"/student"}>Student</Link>
-      <Link to={"/courseform"}>Course</Link>
       <Link to={"/course"}>Course</Link>
+      <Link to={"/courseform"}>CourseForm</Link>
       <Link to={"/club"}>Club</Link> 
       <Link to={"/clubform"}>ClubForm</Link>
       
