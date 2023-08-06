@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const API_URL = 'https://school-api-2wqk.onrender.com/api/clubs/';
 
 const Club = () => {
-  const [club, setClub] = useState(null);
+  const [clubData, setClubData] = useState(null);
 
   useEffect(() => {
     fetchClubData();
@@ -21,7 +21,7 @@ const Club = () => {
 
   return (
     <div>
-      {club ? (
+      {clubData ? (
         <ul>
           {clubData.map((club) => (
             <li key={club.id}>
