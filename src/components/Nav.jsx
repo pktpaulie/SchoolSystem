@@ -11,16 +11,17 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Staff from './Staff'
 import Club from './Club'
 import StaffForm from './StaffForm'
+import Course from './Course'
 
 export default function Nav() {
   return (
     <div>
       <Link to={"/"}>Homepage</Link>
       <Link to={"/staff"}>Staff</Link>
-      <Link to={"/staffform"}>Staff Form</Link>
+      <Link to={"/staffform"}>StaffForm</Link>
       <Link to={"/department"}>Department</Link>
       <Link to={"/students"}>Students</Link>
-      <Link to={"/courses"}>Courses</Link>
+      <Link to={"/courses"}>Course</Link>
       <Link to={"/club"}>Clubs</Link> 
       
         <Routes>
@@ -29,13 +30,13 @@ export default function Nav() {
           <Route path='/staffform' element={<StaffForm />}></Route>
           {/* <Route path='/student' element={<Student />}></Route>
           <Route path='/department' element={<Department />}></Route>*/}
-          <Route path='/courses' element={<Courses />}></Route> 
+          <Route path='/courses' element={<Course />}></Route> 
           <Route path='/club' element={<Club />}></Route>
 
         </Routes> 
       
       
-      <Link to={"/club"}>staff-form</Link>
+      {/* <Link to={"/club"}>staff-form</Link>
       <Link to={"/department"}>department</Link>
       <Link to={"/course"}>Course</Link>
       <Routes>
@@ -43,7 +44,7 @@ export default function Nav() {
         <Route path='/staff' element={<Staff />}></Route>
         <Route path='/club' element={<Club />}></Route>
         <Route path='/course' element={<Course />}></Route>
-      </Routes>
+      </Routes> */}
     </div>
   );
 }
