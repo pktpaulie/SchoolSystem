@@ -10,9 +10,12 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Staff from './Staff'
 import Club from './Club'
+import ClubForm from './ClubForm'
 import StaffForm from './StaffForm'
-import Course from './CourseForm'
+import Course from './Course'
+import CourseForm from './CourseForm'
 import Student from './Student'
+import Students from './Students'
 
 export default function Nav() {
   return (
@@ -22,6 +25,7 @@ export default function Nav() {
       <Link to={"/staffform"}>StaffForm</Link>
       <Link to={"/department"}>Department</Link>
       <Link to={"/student"}>Student</Link>
+      <Link to={"/students"}>Students</Link>
       <Link to={"/course"}>Course</Link>
       <Link to={"/courseform"}>CourseForm</Link>
       <Link to={"/club"}>Club</Link> 
@@ -31,9 +35,11 @@ export default function Nav() {
           <Route path='/' element={<h1>Homepage</h1>}></Route>
           <Route path='/staff' element={<Staff />}></Route>
           <Route path='/staffform' element={<StaffForm />}></Route>
-           <Route path='/student' element={<Student />}></Route>
+          <Route path='/student' element={<Student />}></Route>
+          <Route path='/students' element={<Students />}></Route>
           {/*<Route path='/department' element={<Department />}></Route>*/}
-          <Route path='/courses' element={<Course />}></Route> 
+          <Route path='/course' element={<Course />}></Route> 
+          <Route path='/courseform' element={<CourseForm />}></Route> 
           <Route path='/club' element={<Club />}></Route>
           <Route path='/clubform' element={<ClubForm />}></Route>
 
