@@ -45,30 +45,19 @@ const CourseForm = () => {
     <form onSubmit={handleSubmit}>
               <h4>Register New Course Details</h4>
 
-      <div>
-      <label>Course Name:</label>
       <Form.Group style={{marginTop:'25px'}}> 
-        <Form.Control type="text"    value={courseName} onChange={(e) => setCourseName(e.target.value)} required />
+        <Form.Control type="text" placeholder="Course Name"   value={courseName} onChange={(e) => setCourseName(e.target.value)} required />
       </Form.Group>
-       </div>
-      <div>
-        <label>Course Code:</label>
         <Form.Group style={{marginTop:'25px'}}> 
-        <Form.Control type="text"    value={courseCode} onChange={(e) => setCourseCode(e.target.value)} required />
+        <Form.Control type="text" placeholder="Course Code"   value={courseCode} onChange={(e) => setCourseCode(e.target.value)} required />
       </Form.Group>
-       </div>
-      <div>
-        <label>Department:</label>
         <Form.Group style={{marginTop:'25px'}}> 
-        <Form.Control type="text"    value={department} onChange={(e) => setDepartment(e.target.value)} required />
+        <Form.Control type="text" placeholder="Department"   value={department} onChange={(e) => setDepartment(e.target.value)} required />
       </Form.Group>
-       </div>
-      <div>
-        <label>Duration:</label>
         <Form.Group style={{marginTop:'25px'}}> 
-        <Form.Control type="text"    value={duration} onChange={(e) => setDuration(e.target.value)} required />
+        <Form.Control type="text" placeholder="Duration"   value={duration} onChange={(e) => setDuration(e.target.value)} required />
       </Form.Group>
-       </div>
+
       <button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}>Create New Course</button>
     </form>
   );
