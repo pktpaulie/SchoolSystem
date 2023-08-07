@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
 const ClubForm = () => {
   const [clubName, setClubName] = useState('');
@@ -36,17 +37,18 @@ const ClubForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h4>Register New Club Details</h4>
       <div>
-        <label>Club Name:</label>
-        <input type="text" value={clubName} onChange={(e) => setClubName(e.target.value)} required />
-      </div>
-      <div>
-        <label>Head of Club:</label>
-        <input type="text" value={headOfClub} onChange={(e) => setHeadOfClub(e.target.value)} required />
-      </div>
-      
-      <button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}>Create New Club</button>
-    </form>
+      <Form.Group style={{marginTop:'25px'}}> 
+        <Form.Control type="text"   placeholder="Club Name" value={clubName} onChange={(e) => setClubName(e.target.value)} />
+      </Form.Group>
+      <Form.Group style={{marginTop:'25px'}}> 
+        <Form.Control type="text"   placeholder="Club Name" value={headOfClub} onChange={(e) => setHeadOfClub(e.target.value)} required />
+      </Form.Group>
+        </div>
+        <Button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}> Register New Club </Button>
+ 
+     </form>
   );
 };
 
