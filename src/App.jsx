@@ -3,22 +3,17 @@
 //import StaffForm from './components/StaffForm'
 import Nav from './components/Nav';
 import './App.css'
-
-
-
-
+import Nav from './components/Nav'
 function App() {
   //const [count, setCount] = useState(0)
 
   return (
     <>
-      
-      
-      <Nav/>
-
-      
-    </>   
+      <div>
+        <Nav/>
+      </div>
+    </>
   )
-};
+}
 
-export default App;
+export default App
