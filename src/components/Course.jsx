@@ -29,7 +29,7 @@ const Course = () => {
     .then(data => console.log(data))
       fetchCourseData()
     .catch(error => console.error(error));
-    Courses.show({
+    fetchCourseData.show({
       message: "Course deleted successfully",
       intent: "success",
       timeout: 3000,
