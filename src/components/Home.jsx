@@ -5,7 +5,7 @@ export default function Home() {
     <div>
          <header className="header text-center">
         <h1>Welcome to Our School</h1>
-        <p>Your Awesome Tagline Goes Here</p>
+        <p>Let's Code!</p>
         <a href="#features" className="btn btn-primary btn-lg">Learn More</a>
       </header>
 
@@ -15,22 +15,22 @@ export default function Home() {
             <div className="col-md-4">
               <div className="feature-item">
                 <i className="fas fa-code fa-4x"></i>
-                <h3>Feature 1</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h3>Campuses</h3>
+                <p>We have both the online and physical Campuses.</p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="feature-item">
                 <i className="fas fa-laptop fa-4x"></i>
-                <h3>Feature 2</h3>
-                <p>Quisque euismod orci ut nisl suscipit, in volutpat urna mollis.</p>
+                <h3>Branches</h3>
+                <p>We have Branches in Different Regions of the Country.</p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="feature-item">
                 <i className="fas fa-heart fa-4x"></i>
-                <h3>Feature 3</h3>
-                <p>Nulla cursus turpis ac turpis interdum, at bibendum arcu feugiat.</p>
+                <h3>Management</h3>
+                <p>The Management and Staff of our school are well qualified and perform their tasks professionally.</p>
               </div>
             </div>
           </div>
