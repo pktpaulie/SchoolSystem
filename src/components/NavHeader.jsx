@@ -1,11 +1,5 @@
-import React from 'react'
-import ReactDOM from "react-dom/client";
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-//import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import React from 'react' 
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Staff from './Staff'
@@ -19,23 +13,34 @@ import Department from './Department';
 import DepartmentForm from './DepartmentForm';
 import Students from './Students'
 
-export default function Nav() {
+export default function NavHeader() {
   return (
-    <div>
-      <Link to={"/"}>Homepage</Link>
-      <Link to={"/staff"}>Staff</Link>
-      <Link to={"/staffform"}>StaffForm</Link>
-      <Link to={"/department"}>Department</Link>
-      <Link to={"/student"}>Student</Link>
-      <Link to={"/students"}>Students</Link>
-      <Link to={"/course"}>Course</Link>
-      <Link to={"/courseform"}>CourseForm</Link>
-      <Link to={"/club"}>Club</Link> 
-      <Link to={"/clubform"}>ClubForm</Link>
-      <Link to={"/department"}>Department</Link> 
-      <Link to={"/departmentform"}>DepartmentForm</Link> 
-      
-        <Routes>
+    <>
+   <div>
+   <Navbar bg="dark" expand="lg" variant="dark">
+      <Container>
+        <Navbar.Brand as={Link} to="/">School React UI</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">      
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/staff">Staff</Nav.Link>
+            <Nav.Link as={Link} to="/staffform">StaffForm</Nav.Link>
+            <Nav.Link as={Link} to="/department">Department</Nav.Link> 
+            <Nav.Link as={Link} to="/student">Student</Nav.Link> 
+            <Nav.Link as={Link} to="/students">Students</Nav.Link> 
+            <Nav.Link as={Link} to="/course">Course</Nav.Link> 
+            <Nav.Link as={Link} to="/courseform">CourseForm</Nav.Link> 
+            <Nav.Link as={Link} to="/club">Club</Nav.Link> 
+            <Nav.Link as={Link} to="/clubform">ClubForm</Nav.Link> 
+            <Nav.Link as={Link} to="/departmentform">DepartmentForm</Nav.Link> 
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+   </div>
+   <div> 
+   <Routes>
           <Route path='/' element={<h1>Homepage</h1>}></Route>
           <Route path='/staff' element={<Staff />}></Route>
           <Route path='/staffform' element={<StaffForm />}></Route>
@@ -47,10 +52,9 @@ export default function Nav() {
           <Route path='/courseform' element={<CourseForm />}></Route> 
           <Route path='/club' element={<Club />}></Route>
           <Route path='/clubform' element={<ClubForm />}></Route>
-
         </Routes> 
-      
-    </div>
+   </div>
+   </>
   );
 }
 
