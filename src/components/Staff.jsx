@@ -28,7 +28,7 @@ const Staff = () => {
     .then(data => console.log(data))
       fetchStaffData()
     .catch(error => console.error(error));
-    Students.show({
+    fetchStaffData.show({
       message: "Staff member deleted successfully",
       intent: "success",
       timeout: 100,
