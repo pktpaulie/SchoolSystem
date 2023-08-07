@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 
 
 const API_URL = 'https://school-api-2wqk.onrender.com/api/students/';
@@ -33,6 +33,7 @@ const Students = () => {
           <th>First Name</th>
           <th>Last Name</th>
           <th>Gender</th>
+          <th colSpan={2}>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -42,12 +43,19 @@ const Students = () => {
             <td>{student.first_name}</td>
             <td>{student.second_name}</td>
             <td>{student.gender}</td>
+            <td style={{margin:"5%"}}> 
+              <Button style={{marginRight:"5%", width:"30%"}} className='btn btn-warning'>Edit</Button>
+              <Button style={{marginRight:"5%", width:"30%"}} className='btn btn-danger'>Delete</Button>
+            </td>
           </tr>
         ))}
       </tbody>
     </Table>
-  ) : (
-    <p>Loading Student Details from DB ...</p>
+  ) : ( <p>Loading Student Details from DB ...</p>
+    //  <div class="alert alert-sucess" role="alert">
+    //    <img src="https://gifdb.com/images/high/buffering-animated-text-icon-loading-u1h739who8u5mtw3.gif" width={'10%'} height={'10%'} /> 
+    //   <h4>Student Details from DB ...</h4>
+    // </div>
   )}
 </div>
 

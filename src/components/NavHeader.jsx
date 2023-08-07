@@ -12,6 +12,7 @@ import Student from './Student'
 import Department from './Department';
 import DepartmentForm from './DepartmentForm';
 import Students from './Students'
+import Home from './Home';
 
 export default function NavHeader() {
   return (
@@ -41,7 +42,7 @@ export default function NavHeader() {
    </div>
    <div> 
    <Routes>
-          <Route path='/' element={<h1>Homepage</h1>}></Route>
+          <Route path='/' element={<Home/>}></Route>
           <Route path='/staff' element={<Staff />}></Route>
           <Route path='/staffform' element={<StaffForm />}></Route>
           <Route path='/student' element={<Student />}></Route>
