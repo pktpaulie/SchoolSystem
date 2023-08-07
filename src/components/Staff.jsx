@@ -26,12 +26,12 @@ const Staff = () => {
     })
     .then(res => res.json())
     .then(data => console.log(data))
-      fetchStaffData()
+    fetchStaffData()
     .catch(error => console.error(error));
     fetchStaffData.show({
       message: "Staff member deleted successfully",
       intent: "success",
-      timeout: 100,
+      timeout: 1000,
     })
   }  
 

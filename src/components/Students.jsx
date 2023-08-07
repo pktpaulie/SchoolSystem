@@ -6,12 +6,11 @@ const API_URL = 'https://school-api-2wqk.onrender.com/api/students/';
 
 const Students = () => {
   const [studentData, setStudentDetails] = useState(null);
-
+  
   useEffect(() => {
     fetchStudentDetails();
   }, []);
 
-  
   const fetchStudentDetails = async () => {
     try {
       const response = await fetch(API_URL);
@@ -26,16 +25,21 @@ const Students = () => {
     fetch(`https://school-api-2wqk.onrender.com/api/students/${id}`, {
       method: 'DELETE'
     })
-    .then(res => res.json())
-    .then(data => console.log(data))
-      fetchStudentDetails()
-    .catch(error => console.error(error));
-    Students.show({
-      message: "Student deleted successfully",
-      intent: "success",
-      timeout: 3000,
+    .then(res => {
+      if (res.ok) {
+        fetchStudentDetails(); // You might need this line to update your UI
+        alert('Student Deleted Successfully');
+      } else {
+        throw new Error('Failed to delete student');
+      }
     })
+    .catch(error => {
+      console.error(error);
+      alert('An error occurred while deleting the student');
+    });
   }
+
+
 
   return (
     <>
@@ -60,7 +64,7 @@ const Students = () => {
             <td>{student.second_name}</td>
             <td>{student.gender}</td>
             <td style={{margin:"5%"}}> 
-              <Button style={{marginRight:"5%", width:"30%"}} className='btn btn-warning'>Edit</Button>
+              <Button style={{marginRight:"5%", width:"30%"}} className='btn btn-info'>Edit</Button>
               <Button style={{marginRight:"5%", width:"30%"}}  
               className='btn btn-danger' onClick={() => deleteStudent(student.id)} >Delete</Button>
             </td>
