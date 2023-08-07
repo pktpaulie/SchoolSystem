@@ -57,20 +57,3 @@ export default function NavHeader() {
    </>
   );
 }
-
- 
-/*export default function Nav() {
-  return(
-    <div>
-      <nav class="navbar navbar-light bg-dark">
-        <a class="navbar-brand" href={"/"}>Home</a>
-        <a class="navbar-brand" href={"/staff"}>Staff</a>
-        <a class="navbar-brand" Link to={"/students"}>Students</a>
-        <a class="navbar-brand" Link to={"/department"}>Departments</a>
-        <a class="navbar-brand" Link to={"/courses"}>Courses</a>
-        <a class="navbar-brand" Link to={"/club"}>Clubs</a>
-        </nav>
-    </div>
-    
-  );
-};*/

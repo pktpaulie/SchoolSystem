@@ -73,9 +73,14 @@ const StaffForm = () => {
       <Form.Group style={{marginTop:'5px'}}> 
         <Form.Control type="text"  id="department" name="department" placeholder="Department"  value={formData.department} onChange={handleInputChange} />
       </Form.Group>
-      <Button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}> Register New Staff </Button>
+      <button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}> Register New Staff </button>
    
     </form>
+    <br/>
+    <Button variant="outline-primary">View</Button>{' '}
+    <Button variant="danger">Delete</Button>{' '}
+    <Button variant="outline-info">Update</Button>{' '}
+    
      </>
   );
 };
