@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 
 
 const API_URL = 'https://school-api-2wqk.onrender.com/api/courses/';
@@ -20,6 +20,21 @@ const Course = () => {
       console.error('Error fetching Course data:', error);
     }
   };
+
+  const deleteCourse = id => {
+    fetch(`https://school-api-2wqk.onrender.com/api/courses/${id}`, {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+      fetchCourseData()
+    .catch(error => console.error(error));
+    Courses.show({
+      message: "Course deleted successfully",
+      intent: "success",
+      timeout: 3000,
+    })
+  }
 
   return (
     <>
@@ -46,6 +61,10 @@ const Course = () => {
             <td>{course.course_code}</td>
             <td>{course.department}</td>
             <td>{course.duration}</td> 
+            <td style={{margin:"5%"}}> 
+              <Button style={{marginRight:"5%", width:"30%"}} className='btn btn-warning'>Edit</Button>
+              <Button className='btn btn-danger' onClick={() => deleteCourse(course.id)} >Delete</Button>
+            </td>
           </tr>
         ))}
       </tbody>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 
 const API_URL = 'https://school-api-2wqk.onrender.com/api/staff/';
 
@@ -19,6 +19,21 @@ const Staff = () => {
       console.error('Error fetching staff data:', error);
     }
   };
+
+  const deleteStaff = id => {
+    fetch(`https://school-api-2wqk.onrender.com/api/staff/${id}`, {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+      fetchStaffData()
+    .catch(error => console.error(error));
+    Students.show({
+      message: "Staff member deleted successfully",
+      intent: "success",
+      timeout: 3000,
+    })
+  }  
 
   return (
     <>
@@ -48,6 +63,10 @@ const Staff = () => {
             <td>{staff.age}</td>
             <td>{staff.email}</td>
             <td>{staff.department}</td>
+            <td style={{margin:"5%"}}> 
+              <Button style={{marginRight:"5%", width:"30%"}} className='btn btn-warning'>Edit</Button>
+              <Button className='btn btn-danger' onClick={() => deleteStaff(staff.id)} >Delete</Button>
+            </td>
           </tr>
         ))}
       </tbody>

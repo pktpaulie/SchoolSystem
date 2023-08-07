@@ -11,6 +11,7 @@ const Students = () => {
     fetchStudentDetails();
   }, []);
 
+  
   const fetchStudentDetails = async () => {
     try {
       const response = await fetch(API_URL);
@@ -20,6 +21,21 @@ const Students = () => {
       console.error('Error fetching Student Details:', error);
     }
   };
+
+  const deleteStudent = id => {
+    fetch(`https://school-api-2wqk.onrender.com/api/students/${id}`, {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+      fetchStudentDetails()
+    .catch(error => console.error(error));
+    Students.show({
+      message: "Student deleted successfully",
+      intent: "success",
+      timeout: 3000,
+    })
+  }
 
   return (
     <>
@@ -45,7 +61,8 @@ const Students = () => {
             <td>{student.gender}</td>
             <td style={{margin:"5%"}}> 
               <Button style={{marginRight:"5%", width:"30%"}} className='btn btn-warning'>Edit</Button>
-              <Button style={{marginRight:"5%", width:"30%"}} className='btn btn-danger'>Delete</Button>
+              <Button style={{marginRight:"5%", width:"30%"}}  
+              className='btn btn-danger' onClick={() => deleteStudent(student.id)} >Delete</Button>
             </td>
           </tr>
         ))}
