@@ -32,7 +32,8 @@ const Student = () => {
 
       if (response.ok) {
         // The Student details was successfully created on the server.
-        console.log('Student details created successfully!');
+        console.log(formData,'Student details created successfully!');
+        window.alert('Student details created successfully!'); 
         // You can perform any necessary actions here after successful POST.
       } else {
         // The server returned an error response.
