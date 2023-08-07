@@ -22,19 +22,18 @@ export default function NavHeader() {
         <Navbar.Brand as={Link} to="/">School React UI</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto"> 
-         <Link style={{marginLeft:"15px"}} to={"/"}>Home</Link>
-          <Link style={{marginLeft:"15px"}} to={"/staff"}>Staff</Link>
-          <Link style={{marginLeft:"15px"}} to={"/staffform"}>StaffForm</Link>
-          <Link style={{marginLeft:"15px"}} to={"/department"}>Department</Link>
-          <Link style={{marginLeft:"15px"}} to={"/student"}>Student</Link>
-          <Link style={{marginLeft:"15px"}} to={"/students"}>Students</Link>
-          <Link style={{marginLeft:"15px"}} to={"/course"}>Course</Link>
-          <Link style={{marginLeft:"15px"}} to={"/courseform"}>CourseForm</Link>
-          <Link style={{marginLeft:"15px"}} to={"/club"}>Club</Link> 
-          <Link style={{marginLeft:"15px"}} to={"/clubform"}>ClubForm</Link>
-          <Link style={{marginLeft:"15px"}} to={"/department"}>Department</Link> 
-          <Link style={{marginLeft:"15px"}} to={"/departmentform"}>DepartmentForm</Link> 
+          <Nav className="me-auto">      
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/staff">Staff</Nav.Link>
+            <Nav.Link as={Link} to="/staffform">StaffForm</Nav.Link>
+            <Nav.Link as={Link} to="/department">Department</Nav.Link> 
+            <Nav.Link as={Link} to="/student">Student</Nav.Link> 
+            <Nav.Link as={Link} to="/students">Students</Nav.Link> 
+            <Nav.Link as={Link} to="/course">Course</Nav.Link> 
+            <Nav.Link as={Link} to="/courseform">CourseForm</Nav.Link> 
+            <Nav.Link as={Link} to="/club">Club</Nav.Link> 
+            <Nav.Link as={Link} to="/clubform">ClubForm</Nav.Link> 
+            <Nav.Link as={Link} to="/departmentform">DepartmentForm</Nav.Link> 
           </Nav>
         </Navbar.Collapse>
       </Container>
