@@ -31,7 +31,7 @@ const Staff = () => {
     Students.show({
       message: "Staff member deleted successfully",
       intent: "success",
-      timeout: 3000,
+      timeout: 100,
     })
   }  
 
