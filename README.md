@@ -1,7 +1,7 @@
 # SchoolSystem
-A school system showing development of client applications using the JavaScript React library
+A school system showing development of client applications using the JavaScript React library (React) and Vite fro frond-end and Django for back-end
 
-# React + Vite
+# React + Vite(frond-end)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
