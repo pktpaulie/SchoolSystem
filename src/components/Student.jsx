@@ -6,10 +6,11 @@ const API_URL = 'https://school-api-2wqk.onrender.com/api/students/';
 const Student = () => {
   const [formData, setFormData] = useState({
     first_name: '',
-    second_name: '',
+    second_name: '', 
     gender: null, 
   });
 
+  
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -70,3 +71,4 @@ const Student = () => {
 };
 
 export default Student;
+// export default Student;
