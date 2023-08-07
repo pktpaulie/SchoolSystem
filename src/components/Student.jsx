@@ -46,34 +46,26 @@ const Student = () => {
   };
 
   return (
+    <>
     <form onSubmit={handleSubmit}>
         <h4>Register New Student</h4>
-      <div>
-        <label htmlFor="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" value={formData.first_name} onChange={handleInputChange}
-        />
  
-      </div>
-      <div>
-        <label htmlFor="second_name">Second Name:</label>
-        <input type="text" id="second_name" name="second_name" value={formData.second_name} onChange={handleInputChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="gender">Gender:</label>
-        <input
-          type="text"
-          id="gender"
-          name="gender"
-          value={formData.gender || ''}
-          onChange={handleInputChange}
-        />
-      </div>
-      <button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}> Register Student </button>
+ {/* ...form fields */}  
+ <Form.Group style={{marginTop:'25px'}}> 
+   <Form.Control type="text"  id="first_name" name="first_name" placeholder="First Name"  value={formData.first_name} onChange={handleInputChange} />
+ </Form.Group>
+ <Form.Group style={{marginTop:'5px'}}> 
+   <Form.Control type="text"  id="second_name" name="second_name" placeholder="Second Name"  value={formData.second_name} onChange={handleInputChange} />
+ </Form.Group>
+ <Form.Group style={{marginTop:'5px'}}> 
+   <Form.Control type="text"  id="gender" name="gender" placeholder="Gender"  value={formData.gender || ''} onChange={handleInputChange} />
+ </Form.Group>
+ 
+ 
+ <Button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}> Register New Student </Button>
 
-    
-       
-    </form>
+</form>
+    </>
   );
 };
 
