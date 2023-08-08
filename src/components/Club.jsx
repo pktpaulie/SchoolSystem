@@ -19,6 +19,8 @@ const Club = () => {
       console.error('Error fetching club data:', error);
     }
   };
+// club delete logic
+
 
   return (
     <>

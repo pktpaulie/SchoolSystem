@@ -28,6 +28,7 @@ function Departments() {
             <th>Staff</th>
             <th>Head of Department</th>
             <th>Courses in Department</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -37,6 +38,8 @@ function Departments() {
               <td>{item.staff}</td>
               <td>{item.head_of_department}</td>
               <td>{item.courses_in_department}</td>
+              <td>Edit Delete</td>
+
             </tr>
           ))}
         </tbody>

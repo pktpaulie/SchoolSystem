@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
-//import { Form, Button } from 'react-bootstrap';
-=======
 import { Form, Button } from 'react-bootstrap';
 // 
 import Students from './Students';
->>>>>>> 87506aaba15f394ba4cd932fa6829caf64a5af5a
 
 const API_URL = 'https://school-api-2wqk.onrender.com/api/students/';
 
