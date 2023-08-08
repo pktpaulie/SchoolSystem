@@ -25,7 +25,7 @@ const Department = () => {
 
   // Department delete logic
   const deleteDepartment = id => {
-    fetch(`https://school-api-2wqk.onrender.com/api/departments/${id}`, {
+    fetch(`https://school-api-2wqk.onrender.com/api/department/${id}`, {
       method: 'DELETE'
     })
     .then(res => { 
