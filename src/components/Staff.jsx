@@ -17,6 +17,7 @@ const Staff = () => {
     department: '',
   });
 
+  
   useEffect(() => {
     fetchStaffData();
   }, []);
