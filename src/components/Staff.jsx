@@ -20,20 +20,25 @@ const Staff = () => {
     }
   };
 
+  // 
   const deleteStaff = id => {
     fetch(`https://school-api-2wqk.onrender.com/api/staff/${id}`, {
       method: 'DELETE'
     })
-    .then(res => res.json())
-    .then(data => console.log(data))
-    fetchStaffData()
-    .catch(error => console.error(error));
-    fetchStaffData.show({
-      message: "Staff member deleted successfully",
-      intent: "success",
-      timeout: 1000,
+    .then(res => {
+      if (res.ok) {
+        fetchStaffData(); // This function automatically refresh this component or (UI) and gets new data
+        alert('Staff member deleted successfully');
+      } else {
+        throw new Error('Failed to delete Staff');
+      }
     })
-  }  
+    .catch(error => {
+      console.error(error);
+      alert('An error occurred while deleting the Staff');
+    });
+  }
+  // 
 
   return (
     <>

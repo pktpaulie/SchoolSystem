@@ -21,13 +21,14 @@ const Students = () => {
     }
   };
 
+  
   const deleteStudent = id => {
     fetch(`https://school-api-2wqk.onrender.com/api/students/${id}`, {
       method: 'DELETE'
     })
     .then(res => {
       if (res.ok) {
-        fetchStudentDetails(); // You might need this line to update your UI
+        fetchStudentDetails(); // This function automatically refresh this component or (UI) and gets new data
         alert('Student Deleted Successfully');
       } else {
         throw new Error('Failed to delete student');
