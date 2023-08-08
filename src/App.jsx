@@ -1,7 +1,6 @@
 //import Departments from './components/Departments'
 //import Staff from './components/Staff'
 //import StaffForm from './components/StaffForm'
-import Nav from './components/Nav';
 import './App.css'
 import Nav from './components/Nav'
 function App() {

@@ -88,10 +88,5 @@ const DepartmentForm = () => {
       </div>
     );
   }
-<<<<<<< HEAD
-  
-
-=======
 
 export default DepartmentForm;
->>>>>>> 26e99580578d27a4413251f9f3922a49e089d131
