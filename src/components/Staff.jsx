@@ -21,6 +21,7 @@ const Staff = () => {
     fetchStaffData();
   }, []);
 
+  // Fecthing data function from back-end API
   const fetchStaffData = async () => {
     try {
       const response = await fetch(API_URL);
@@ -31,7 +32,7 @@ const Staff = () => {
     }
   };
 
-  // 
+  // delete staff function
   const deleteStaff = id => {
     fetch(`https://school-api-2wqk.onrender.com/api/staff/${id}`, {
       method: 'DELETE'
@@ -46,14 +47,14 @@ const Staff = () => {
       alert('An error occurred while deleting the Staff');
     });
   }
-  // 
 
-  // Edit staff
+
+  // Edit staff function
   const editStaff =staff=>{
     setShowStaffTable(false)
     setFormData(staff)
   }
-
+//
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -91,80 +92,77 @@ const Staff = () => {
     }
   };
 
-  return (
-    <>
+return (
+  <>
 {showStaffTable?
-<div>
-        <h2>Registered School Staff Team</h2>
-  {staffData ? (
-     <Table striped bordered hover style={{ width: '100%' }}>
-       <thead>
-        <tr>
-          <th>ID</th>
-          <th>First Name</th>
-          <th>Second Name</th>
-          <th>Gender</th>
-          <th>Age</th>
-          <th>Email</th>
-          <th>Department</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {staffData.map((staff) => (
-          <tr key={staff.id}>
-            <td>{staff.id}</td>
-            <td>{staff.first_name}</td>
-            <td>{staff.second_name}</td>
-            <td>{staff.gender}</td>
-            <td>{staff.age}</td>
-            <td>{staff.email}</td>
-            <td>{staff.department}</td>
-            <td style={{margin:"5%"}}> 
-              <Button style={{marginRight:"5%", width:"30%"}} variant="outline-primary" onClick={()=> editStaff(staff)} >Edit</Button>
-              <Button variant='outline-danger' onClick={() => deleteStaff(staff.id)} >Delete</Button>
-            </td>
+  <div>
+          <h2>Registered School Staff Team</h2>
+    {staffData ? (
+      <Table striped bordered hover style={{ width: '100%' }}>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Second Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Actions</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
-  ) : (
-    <p>Loading Staff Details from DB ...</p>
-  )}
-</div>
- : 
- <form onSubmit={handleEditStaff}>
+        </thead>
+        <tbody>
+          {staffData.map((staff) => (
+            <tr key={staff.id}>
+              <td>{staff.id}</td>
+              <td>{staff.first_name}</td>
+              <td>{staff.second_name}</td>
+              <td>{staff.gender}</td>
+              <td>{staff.age}</td>
+              <td>{staff.email}</td>
+              <td>{staff.department}</td>
+              <td style={{margin:"5%"}}> 
+                <Button style={{marginRight:"5%", width:"30%"}} variant="outline-primary" onClick={()=> editStaff(staff)} >Edit</Button>
+                <Button variant='outline-danger' onClick={() => deleteStaff(staff.id)} >Delete</Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    ) : (
+      <p>Loading Staff Details from DB ...</p>
+    )}
+  </div>
+: 
+  <Form onSubmit={handleEditStaff}>
   {/* EditStaff form */}
- {/* ...form fields */} 
+  {/* ...form fields */} 
   <h4>Edit Selected Staff</h4>
   <Form.Group style={{marginTop:'25px'}}> 
-    <Form.Control type="text"  id="first_name" name="first_name" placeholder="First Name" value={formData.first_name} onChange={handleInputChange}  />
+    <Form.Control type="text"   name="first_name" value={formData.first_name} onChange={handleInputChange}  />
   </Form.Group>
   <Form.Group style={{marginTop:'5px'}}> 
-    <Form.Control type="text"  id="second_name" name="second_name" placeholder="Second Name"  value={formData.second_name} onChange={handleInputChange} />
+    <Form.Control type="text" name="second_name" value={formData.second_name} onChange={handleInputChange} />
   </Form.Group>
   <Form.Group style={{marginTop:'5px'}}> 
-    <Form.Control type="text"  id="gender" name="gender" placeholder="Gender" value={formData.gender} onChange={handleInputChange}  />
+    <Form.Control type="text"  name="gender" value={formData.gender} onChange={handleInputChange}  />
   </Form.Group>
   <Form.Group style={{marginTop:'5px'}}> 
-    <Form.Control type="text"   id="age" name="age" placeholder="Age" value={formData.age}  onChange={handleInputChange} />
+    <Form.Control type="text"    name="age" value={formData.age}  onChange={handleInputChange} />
   </Form.Group>
   <Form.Group style={{marginTop:'5px'}}> 
-    <Form.Control type="text"  id="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleInputChange}  />
+    <Form.Control type="text"  name="email" value={formData.email} onChange={handleInputChange}  />
   </Form.Group>
   <Form.Group style={{marginTop:'5px'}}> 
-    <Form.Control type="text"  id="department" name="department" placeholder="Department" value={formData.department} onChange={handleInputChange}  />
+    <Form.Control type="text"   name="department" value={formData.department} onChange={handleInputChange}  />
   </Form.Group>
   <Button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '50%' }}> Update Staff </Button>
   <Button  type="submit" variant="outline-danger" style={{marginTop:'15px', width: '50%' }} onClick={()=> setShowStaffTable(true)}> Cancel </Button>
 
-</form>
+  </Form> 
   }
 
-
-
-
-    </>
+  </>
   );
 };
 
