@@ -140,7 +140,7 @@ return (
    <Form.Control type="text"   name="second_name"  value={showStudentData.second_name} onChange={handleInputChange}  />
  </Form.Group>
  <Form.Group style={{marginTop:'5px'}}> 
-   <Form.Control type="text"   name="gender" value={showStudentData.gender} onChange={handleInputChange}   />
+   <Form.Control type="text"  name="gender" value={showStudentData.gender} onChange={handleInputChange}   />
  </Form.Group>
 
  <Button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '50%' }}> Update Selected Student </Button>
