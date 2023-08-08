@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+// 
+import Students from './Students';
 
 const API_URL = 'https://school-api-2wqk.onrender.com/api/students/';
 
@@ -34,6 +36,7 @@ const Student = () => {
         // The Student details was successfully created on the server.
         console.log(formData,'Student details created successfully!');
         alert('Student details created successfully!'); 
+        <Students/>
         // You can perform any necessary actions here after successful POST.
       } else {
         // The server returned an error response.
@@ -48,7 +51,7 @@ const Student = () => {
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
+<Form onSubmit={handleSubmit}>
         <h4>Register New Student</h4>
  
  {/* ...form fields */}  
@@ -65,7 +68,7 @@ const Student = () => {
  
  <Button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}> Register New Student </Button>
 
-</form>
+</Form>
     </>
   );
 };
