@@ -23,8 +23,8 @@ const StaffForm = () => {
     });
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+const handleSubmit = async (event) => {
+    event.preventDefault();  // prevents form from submitting itself
 
     try {
       const response = await fetch(API_URL, {

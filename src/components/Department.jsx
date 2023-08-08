@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 
 
 const API_URL = 'https://school-api-2wqk.onrender.com/api/departments/';
@@ -21,6 +21,25 @@ const Department = () => {
     }
   };
 
+  // Department delete logic
+  const deleteDepartment = id => {
+    fetch(`https://school-api-2wqk.onrender.com/api/departments/${id}`, {
+      method: 'DELETE'
+    })
+    .then(res => {
+      if (res.ok) {
+        fetchDepartmentData(); // This function automatically refresh this component or (UI) and gets new data
+        alert('THe selected Department has been Deleted');
+      } else {
+        throw new Error('Failed to delete department');
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      alert('An error occurred while deleting the department');
+    });
+  }
+
   return (
     <>
     <div>
@@ -34,6 +53,7 @@ const Department = () => {
           <th>Staff Name</th>
           <th>Head Of Department</th>
           <th>Courses in Department</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -44,6 +64,11 @@ const Department = () => {
             <td>{department.staff}</td>
             <td>{department.head_of_department}</td>
             <td>{department.courses_in_department}</td>
+            <td style={{margin:"5%"}}> 
+             <Button variant='outline-primary' style={{marginRight:"5%", width:"30%"}}>EDIT</Button>
+             <Button variant='outline-danger' onClick={() => deleteDepartment(department.id)}>DELETE</Button>
+             
+            </td>
            </tr>
         ))}
       </tbody>

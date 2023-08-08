@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Button } from 'react-bootstrap';
+import { Form, Table, Button } from 'react-bootstrap';
 
 const API_URL = 'https://school-api-2wqk.onrender.com/api/staff/';
 
 const Staff = () => {
   const [staffData, setStaffData] = useState(null);
+  // edit staff
+  const [showStaffTable, setShowStaffTable] = useState(true);
+  const [formData, setFormData] = useState({
+    id: '',
+    first_name: '',
+    second_name: '',
+    gender:null,
+    age: '',
+    email: '',
+    department: '',
+  });
 
   useEffect(() => {
     fetchStaffData();
@@ -25,13 +36,10 @@ const Staff = () => {
     fetch(`https://school-api-2wqk.onrender.com/api/staff/${id}`, {
       method: 'DELETE'
     })
-    .then(res => {
-      if (res.ok) {
+    .then(res => { 
         fetchStaffData(); // This function automatically refresh this component or (UI) and gets new data
         alert('Staff member deleted successfully');
-      } else {
-        throw new Error('Failed to delete Staff');
-      }
+     
     })
     .catch(error => {
       console.error(error);
@@ -40,10 +48,53 @@ const Staff = () => {
   }
   // 
 
+  // Edit staff
+  const editStaff =staff=>{
+    setShowStaffTable(false)
+    setFormData(staff)
+  }
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+  // Handle Edit Staff
+  const handleEditStaff = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch(`https://school-api-2wqk.onrender.com/api/staff/${formData.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        fetchStaffData()
+        setShowStaffTable(true)
+        // The staff data was successfully created on the server.
+        console.log('Staff data Updated successfully!');
+        // You can perform any necessary actions here after successful POST.
+      } else {
+        // The server returned an error response.
+        const responseData = await response.json();
+        console.error('Failed to Update staff data on the server:', responseData);
+      }
+    } catch (error) {
+      // An error occurred during the API call.
+      console.error('Error Updating staff data:', error);
+    }
+  };
+
   return (
     <>
- 
-    <div>
+{showStaffTable?
+<div>
         <h2>Registered School Staff Team</h2>
   {staffData ? (
      <Table striped bordered hover style={{ width: '100%' }}>
@@ -56,6 +107,7 @@ const Staff = () => {
           <th>Age</th>
           <th>Email</th>
           <th>Department</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -69,8 +121,8 @@ const Staff = () => {
             <td>{staff.email}</td>
             <td>{staff.department}</td>
             <td style={{margin:"5%"}}> 
-              <Button style={{marginRight:"5%", width:"30%"}} className='btn btn-warning'>Edit</Button>
-              <Button className='btn btn-danger' onClick={() => deleteStaff(staff.id)} >Delete</Button>
+              <Button style={{marginRight:"5%", width:"30%"}} variant="outline-primary" onClick={()=> editStaff(staff)} >Edit</Button>
+              <Button variant='outline-danger' onClick={() => deleteStaff(staff.id)} >Delete</Button>
             </td>
           </tr>
         ))}
@@ -80,6 +132,38 @@ const Staff = () => {
     <p>Loading Staff Details from DB ...</p>
   )}
 </div>
+ : 
+ <form onSubmit={handleEditStaff}>
+  {/* EditStaff form */}
+ {/* ...form fields */} 
+  <h4>Edit Selected Staff</h4>
+  <Form.Group style={{marginTop:'25px'}}> 
+    <Form.Control type="text"  id="first_name" name="first_name" placeholder="First Name" value={formData.first_name} onChange={handleInputChange}  />
+  </Form.Group>
+  <Form.Group style={{marginTop:'5px'}}> 
+    <Form.Control type="text"  id="second_name" name="second_name" placeholder="Second Name"  value={formData.second_name} onChange={handleInputChange} />
+  </Form.Group>
+  <Form.Group style={{marginTop:'5px'}}> 
+    <Form.Control type="text"  id="gender" name="gender" placeholder="Gender" value={formData.gender} onChange={handleInputChange}  />
+  </Form.Group>
+  <Form.Group style={{marginTop:'5px'}}> 
+    <Form.Control type="text"   id="age" name="age" placeholder="Age" value={formData.age}  onChange={handleInputChange} />
+  </Form.Group>
+  <Form.Group style={{marginTop:'5px'}}> 
+    <Form.Control type="text"  id="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleInputChange}  />
+  </Form.Group>
+  <Form.Group style={{marginTop:'5px'}}> 
+    <Form.Control type="text"  id="department" name="department" placeholder="Department" value={formData.department} onChange={handleInputChange}  />
+  </Form.Group>
+  <Button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '50%' }}> Update Staff </Button>
+  <Button  type="submit" variant="outline-danger" style={{marginTop:'15px', width: '50%' }} onClick={()=> setShowStaffTable(true)}> Cancel </Button>
+
+</form>
+  }
+
+
+
+
     </>
   );
 };
