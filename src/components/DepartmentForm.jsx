@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
-const API_URL = 'https://school-api-2wqk.onrender.com/api/department/';
+const API_URL = 'https://school-api-2wqk.onrender.com/api/departments/';
 
 const DepartmentForm = () => {
     const [formData, setFormData] = useState({
@@ -46,46 +47,30 @@ const DepartmentForm = () => {
   };
 
   return (
-    <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <input type="text" placeholder="Department name" name="department_name"
-              value={formData.department_name}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Staff"
-              name="staff"
-              value={formData.staff}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Head of department"
-              name="head_of_department"
-              value={formData.head_of_department}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Courses in department"
-              name="courses_in_department"
-              value={formData.courses_in_department}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
-      </div>
+    <>
+         <form onSubmit={handleSubmit}>
+ 
+ 
+      {/* ...form fields */} 
+      <h4>Register New Department</h4>
+      <Form.Group style={{marginTop:'25px'}}> 
+        <Form.Control type="text"  id="department_name" name="department_name" placeholder="Department Name"  value={formData.department_name} onChange={handleInputChange} />
+      </Form.Group>
+      <Form.Group style={{marginTop:'5px'}}> 
+        <Form.Control type="text"  id="staff" name="staff" placeholder="Staff Name"  value={formData.staff} onChange={handleInputChange} />
+      </Form.Group>
+      <Form.Group style={{marginTop:'5px'}}> 
+        <Form.Control type="text"  id="head_of_department" name="head_of_department" placeholder="Head of Department"  value={formData.head_of_department} onChange={handleInputChange} />
+      </Form.Group>
+      <Form.Group style={{marginTop:'5px'}}> 
+        <Form.Control type="text"   id="courses_in_department" name="courses_in_department" placeholder="Courses in Department"  value={formData.courses_in_department} onChange={handleInputChange} />
+      </Form.Group>
+ 
+     
+      <Button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}> Register New Department </Button>
+   
+    </form>
+      </>
     );
   }
 

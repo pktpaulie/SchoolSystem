@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 //import { Form, Button } from 'react-bootstrap';
+=======
+import { Form, Button } from 'react-bootstrap';
+// 
+import Students from './Students';
+>>>>>>> 87506aaba15f394ba4cd932fa6829caf64a5af5a
 
 const API_URL = 'https://school-api-2wqk.onrender.com/api/students/';
 
@@ -32,7 +38,9 @@ const Student = () => {
 
       if (response.ok) {
         // The Student details was successfully created on the server.
-        console.log('Student details created successfully!');
+        console.log(formData,'Student details created successfully!');
+        alert('Student details created successfully!'); 
+        <Students/>
         // You can perform any necessary actions here after successful POST.
       } else {
         // The server returned an error response.
@@ -46,34 +54,26 @@ const Student = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <>
+<Form onSubmit={handleSubmit}>
         <h4>Register New Student</h4>
-      <div>
-        <label htmlFor="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" value={formData.first_name} onChange={handleInputChange}
-        />
  
-      </div>
-      <div>
-        <label htmlFor="second_name">Second Name:</label>
-        <input type="text" id="second_name" name="second_name" value={formData.second_name} onChange={handleInputChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="gender">Gender:</label>
-        <input
-          type="text"
-          id="gender"
-          name="gender"
-          value={formData.gender || ''}
-          onChange={handleInputChange}
-        />
-      </div>
-      <button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}> Register Student </button>
+ {/* ...form fields */}  
+ <Form.Group style={{marginTop:'25px'}}> 
+   <Form.Control type="text"  id="first_name" name="first_name" placeholder="First Name"  value={formData.first_name} onChange={handleInputChange} />
+ </Form.Group>
+ <Form.Group style={{marginTop:'5px'}}> 
+   <Form.Control type="text"  id="second_name" name="second_name" placeholder="Second Name"  value={formData.second_name} onChange={handleInputChange} />
+ </Form.Group>
+ <Form.Group style={{marginTop:'5px'}}> 
+   <Form.Control type="text"  id="gender" name="gender" placeholder="Gender"  value={formData.gender || ''} onChange={handleInputChange} />
+ </Form.Group>
+ 
+ 
+ <Button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}> Register New Student </Button>
 
-    
-       
-    </form>
+</Form>
+    </>
   );
 };
 

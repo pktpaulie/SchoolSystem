@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Button, Table } from 'react-bootstrap';
+
 
 const API_URL = 'https://school-api-2wqk.onrender.com/api/departments/';
 
@@ -19,20 +21,63 @@ const Department = () => {
     }
   };
 
+  // Department delete logic
+  const deleteDepartment = id => {
+    fetch(`https://school-api-2wqk.onrender.com/api/departments/${id}`, {
+      method: 'DELETE'
+    })
+    .then(res => {
+      if (res.ok) {
+        fetchDepartmentData(); // This function automatically refresh this component or (UI) and gets new data
+        alert('THe selected Department has been Deleted');
+      } else {
+        throw new Error('Failed to delete department');
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      alert('An error occurred while deleting the department');
+    });
+  }
+
   return (
+    <>
     <div>
-      {departmentData ? (
-        <ul>
-          {departmentData.map((department) => (
-            <li key={department.id}>
-              {department.department_name} {department.staff} - {department.head_of_department} - {department.courses_in_department}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Loading department data...</p>
-      )}
-    </div>
+        <h2>Registered School Departments</h2>
+  {departmentData ? (
+     <Table striped bordered hover style={{ width: '100%' }}>
+       <thead>
+        <tr>
+          <th>ID</th>
+          <th>Department Name</th>
+          <th>Staff Name</th>
+          <th>Head Of Department</th>
+          <th>Courses in Department</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {departmentData.map((department) => (
+          <tr key={department.id}>
+            <td>{department.id}</td>
+            <td>{department.department_name}</td>
+            <td>{department.staff}</td>
+            <td>{department.head_of_department}</td>
+            <td>{department.courses_in_department}</td>
+            <td style={{margin:"5%"}}> 
+             <Button variant='outline-primary' style={{marginRight:"5%", width:"30%"}}>EDIT</Button>
+             <Button variant='outline-danger' onClick={() => deleteDepartment(department.id)}>DELETE</Button>
+             
+            </td>
+           </tr>
+        ))}
+      </tbody>
+    </Table>
+  ) : (
+    <p>Loading Departments Details from DB ...</p>
+  )}
+</div>
+    </>
   );
 };
 

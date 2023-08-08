@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Table } from 'react-bootstrap';
 
 const API_URL = 'https://school-api-2wqk.onrender.com/api/clubs/';
 
@@ -20,19 +21,33 @@ const Club = () => {
   };
 
   return (
-    <div>
-      {clubData ? (
-        <ul>
-          {clubData.map((club) => (
-            <li key={club.id}>
-              {club.club_name} - {club.head_of_club}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Loading club data...</p>
-      )}
-    </div>
+    <>
+ <div>
+        <h2>Registered School Clubs</h2>
+  {clubData ? (
+     <Table striped bordered hover style={{ width: '100%' }}>
+       <thead>
+        <tr>
+          <th>ID</th>
+          <th>Club Name</th>
+          <th>Head of Club</th> 
+        </tr>
+      </thead>
+      <tbody>
+        {clubData.map((club) => (
+          <tr key={club.id}>
+            <td>{club.id}</td>
+            <td>{club.club_name}</td>
+            <td>{club.head_of_club}</td> 
+          </tr>
+        ))}
+      </tbody>
+    </Table>
+  ) : (
+    <p>Loading Club Details from DB ...</p>
+  )}
+</div>
+    </>
   );
 };
 

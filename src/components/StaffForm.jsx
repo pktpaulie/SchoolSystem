@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import Staff from './Staff';
+
 
 const API_URL = 'https://school-api-2wqk.onrender.com/api/staff/';
 
@@ -20,8 +23,8 @@ const StaffForm = () => {
     });
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+const handleSubmit = async (event) => {
+    event.preventDefault();  // prevents form from submitting itself
 
     try {
       const response = await fetch(API_URL, {
@@ -46,71 +49,40 @@ const StaffForm = () => {
       console.error('Error creating staff data:', error);
     }
   };
-
-  return (
+ 
+return (
+    <>
     <form onSubmit={handleSubmit}>
-      <div style={{margin: "22px 35px"}}>
-        <label htmlFor="first_name">First Name</label><br />
-        <input style={{height: "28px", width: "250px", border: "2px solid rgba(255, 255, 255", margin: "10px 0px", borderRadius: "5px"}}
-          type="text"
-          id="first_name"
-          name="first_name"
-          value={formData.first_name}
-          onChange={handleInputChange}
-        />
-      </div>
-      <div style={{margin: "22px 35px"}}>
-        <label htmlFor="second_name">Second Name</label><br />
-        <input style={{height: "28px", width: "250px", border: "1.5px solid rgba(255, 255, 255", margin: "10px 0px", borderRadius: "5px"}}
-          type="text"
-          id="second_name"
-          name="second_name"
-          value={formData.second_name}
-          onChange={handleInputChange}
-        />
-      </div>
-      <div style={{margin: "22px 35px"}}>
-        <label htmlFor="gender">Gender</label><br />
-        <input style={{height: "28px", width: "250px", border: "1.5px solid rgba(255, 255, 255", margin: "10px 0px", borderRadius: "5px"}}
-          type="text"
-          id="gender"
-          name="gender"
-          value={formData.gender || ''}
-          onChange={handleInputChange}
-        />
-      </div>
-      <div style={{margin: "22px 35px"}}>
-        <label htmlFor="age">Age</label><br />
-        <input style={{height: "28px", width: "250px", border: "1.5px solid rgba(255, 255, 255", margin: "10px 0px", borderRadius: "5px"}}
-          type="number"
-          id="age"
-          name="age"
-          value={formData.age}
-          onChange={handleInputChange}
-        />
-      </div>
-      <div style={{margin: "22px 35px"}}>
-        <label htmlFor="email">Email</label><br />
-        <input style={{height: "28px", width: "250px", border: "1.5px solid rgba(255, 255, 255", margin: "10px 0px", borderRadius: "5px"}}
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-        />
-      </div>
-      <div style={{margin: "22px 35px"}}>
-        <label htmlFor="department">Department</label><br />
-        <input style={{height: "28px", width: "250px", border: "1.5px solid rgba(255, 255, 255", margin: "10px 0px", borderRadius: "5px"}}
-          type="text"
-          id="department"
-          name="department"
-          value={formData.department}
-          onChange={handleInputChange}
-        />
-      </div>
-      <button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}>Creat New Staff Member</button>
+ 
+      {/* ...form fields */} 
+      <h4>Register New Staff</h4>
+      <Form.Group style={{marginTop:'25px'}}> 
+        <Form.Control type="text"  id="first_name" name="first_name" placeholder="First Name"  value={formData.first_name} onChange={handleInputChange} />
+      </Form.Group>
+      <Form.Group style={{marginTop:'5px'}}> 
+        <Form.Control type="text"  id="second_name" name="second_name" placeholder="Second Name"  value={formData.second_name} onChange={handleInputChange} />
+      </Form.Group>
+      <Form.Group style={{marginTop:'5px'}}> 
+        <Form.Control type="text"  id="gender" name="gender" placeholder="Gender"  value={formData.gender || ''} onChange={handleInputChange} />
+      </Form.Group>
+      <Form.Group style={{marginTop:'5px'}}> 
+        <Form.Control type="text"   id="age" name="age" placeholder="Age"  value={formData.age} onChange={handleInputChange} />
+      </Form.Group>
+      <Form.Group style={{marginTop:'5px'}}> 
+        <Form.Control type="text"  id="email" name="email" placeholder="Email Address"  value={formData.email} onChange={handleInputChange} />
+      </Form.Group>
+      <Form.Group style={{marginTop:'5px'}}> 
+        <Form.Control type="text"  id="department" name="department" placeholder="Department"  value={formData.department} onChange={handleInputChange} />
+      </Form.Group>
+      <Button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}> Register New Staff </Button>
+   
     </form>
+    <br/>
+    <Button variant="outline-primary">View</Button>{' '}    
+    <Button variant="danger">Delete</Button>{' '}
+    <Button variant="outline-info">Update</Button>{' '}
+    
+     </>
   );
 };
 
