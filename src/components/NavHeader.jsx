@@ -12,6 +12,7 @@ import Student from './Student'
 import Department from './Department';
 import DepartmentForm from './DepartmentForm';
 import Students from './Students'
+import Home from './Home';
 
 export default function NavHeader() {
   return (
@@ -41,7 +42,7 @@ export default function NavHeader() {
    </div>
    <div> 
    <Routes>
-          <Route path='/' element={<h1>Homepage</h1>}></Route>
+          <Route path='/' element={<Home/>}></Route>
           <Route path='/staff' element={<Staff />}></Route>
           <Route path='/staffform' element={<StaffForm />}></Route>
           <Route path='/student' element={<Student />}></Route>
@@ -57,20 +58,3 @@ export default function NavHeader() {
    </>
   );
 }
-
- 
-/*export default function Nav() {
-  return(
-    <div>
-      <nav class="navbar navbar-light bg-dark">
-        <a class="navbar-brand" href={"/"}>Home</a>
-        <a class="navbar-brand" href={"/staff"}>Staff</a>
-        <a class="navbar-brand" Link to={"/students"}>Students</a>
-        <a class="navbar-brand" Link to={"/department"}>Departments</a>
-        <a class="navbar-brand" Link to={"/courses"}>Courses</a>
-        <a class="navbar-brand" Link to={"/club"}>Clubs</a>
-        </nav>
-    </div>
-    
-  );
-};*/

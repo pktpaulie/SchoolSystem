@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import Staff from './Staff';
 
 
 const API_URL = 'https://school-api-2wqk.onrender.com/api/staff/';
@@ -22,8 +23,8 @@ const StaffForm = () => {
     });
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+const handleSubmit = async (event) => {
+    event.preventDefault();  // prevents form from submitting itself
 
     try {
       const response = await fetch(API_URL, {
@@ -48,8 +49,8 @@ const StaffForm = () => {
       console.error('Error creating staff data:', error);
     }
   };
-
-  return (
+ 
+return (
     <>
     <form onSubmit={handleSubmit}>
  
@@ -76,6 +77,11 @@ const StaffForm = () => {
       <Button  type="submit" variant="outline-primary" style={{marginTop:'15px', width: '100%' }}> Register New Staff </Button>
    
     </form>
+    <br/>
+    <Button variant="outline-primary">View</Button>{' '}    
+    <Button variant="danger">Delete</Button>{' '}
+    <Button variant="outline-info">Update</Button>{' '}
+    
      </>
   );
 };
