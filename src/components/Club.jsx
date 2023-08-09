@@ -31,6 +31,7 @@ const Club = () => {
           <th>ID</th>
           <th>Club Name</th>
           <th>Head of Club</th> 
+          <th>ACTIONS</th> 
         </tr>
       </thead>
       <tbody>

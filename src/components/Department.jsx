@@ -22,21 +22,19 @@ const Department = () => {
   };
 
   // Department delete logic
+ 
   const deleteDepartment = id => {
     fetch(`https://school-api-2wqk.onrender.com/api/departments/${id}`, {
       method: 'DELETE'
     })
-    .then(res => {
-      if (res.ok) {
-        fetchDepartmentData(); // This function automatically refresh this component or (UI) and gets new data
-        alert('THe selected Department has been Deleted');
-      } else {
-        throw new Error('Failed to delete department');
-      }
+    .then(res => { 
+        fetchStaffData(); // This function automatically refresh this component or (UI) and gets new data
+        alert('Staff member deleted successfully');
+     
     })
     .catch(error => {
       console.error(error);
-      alert('An error occurred while deleting the department');
+      alert('An error occurred while deleting the Staff');
     });
   }
 
