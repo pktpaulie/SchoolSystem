@@ -24,12 +24,13 @@ const Department = () => {
   };
 
   // Department delete logic
+ 
   const deleteDepartment = id => {
     fetch(`https://school-api-2wqk.onrender.com/api/department/${id}`, {
       method: 'DELETE'
     })
     .then(res => { 
-        fetchDepartmentData(); // This function automatically refresh this component or (UI) and gets new data
+        fetchStaffData(); // This function automatically refresh this component or (UI) and gets new data
         alert('Staff member deleted successfully');
      
     })

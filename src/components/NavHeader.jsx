@@ -14,6 +14,8 @@ import DepartmentForm from './DepartmentForm';
 import Students from './Students'
 import Home from './Home';
 
+import DeleteStaff from '../components/Staff/DeleteStaff';
+
 export default function NavHeader() {
   return (
     <>
@@ -41,7 +43,7 @@ export default function NavHeader() {
     </Navbar>
    </div>
    <div> 
-   <Routes>
+        <Routes>
           <Route path='/' element={<Home/>}></Route>
           <Route path='/staff' element={<Staff />}></Route>
           <Route path='/staffform' element={<StaffForm />}></Route>
