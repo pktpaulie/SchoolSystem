@@ -14,8 +14,7 @@ import DepartmentForm from './DepartmentForm';
 import Students from './Students'
 import Home from './Home';
 // 
-import ViewStudent from '../components/Student/ViewStudent';
-import UpdateStudent from '../components/Student/UpdateStudent';
+import ViewStudent from '../Student/usecases/viewStudents/ViewStudent';
 
 export default function NavHeader() {
   return (
@@ -32,14 +31,14 @@ export default function NavHeader() {
             <Nav.Link as={Link} to="/staffform">StaffForm</Nav.Link>
             <Nav.Link as={Link} to="/department">Department</Nav.Link> 
             <Nav.Link as={Link} to="/student">Student</Nav.Link> 
-            <Nav.Link as={Link} to="/students">Students</Nav.Link> 
+            {/* <Nav.Link as={Link} to="/students">Students</Nav.Link>  */}
             <Nav.Link as={Link} to="/course">Course</Nav.Link> 
             <Nav.Link as={Link} to="/courseform">CourseForm</Nav.Link> 
             <Nav.Link as={Link} to="/club">Club</Nav.Link> 
             <Nav.Link as={Link} to="/clubform">ClubForm</Nav.Link> 
             <Nav.Link as={Link} to="/departmentform">DepartmentForm</Nav.Link> 
             {/* New clean links */}
-            <Nav.Link as={Link} to="/viewStudent">View Students</Nav.Link> 
+            <Nav.Link as={Link} to="/viewStudent">View-Students</Nav.Link> 
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -51,7 +50,7 @@ export default function NavHeader() {
           <Route path='/staff' element={<Staff />}></Route>
           <Route path='/staffform' element={<StaffForm />}></Route>
           <Route path='/student' element={<Student />}></Route>
-          <Route path='/students' element={<Students />}></Route>
+          {/* <Route path='/students' element={<Students />}></Route> */}
           <Route path='/department' element={<Department />}></Route>
           <Route path='/departmentform' element={<DepartmentForm />}></Route>
           <Route path='/course' element={<Course />}></Route> 

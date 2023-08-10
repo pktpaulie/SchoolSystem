@@ -1,17 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { Form, Table, Button } from 'react-bootstrap';
-
-// delete
  
 
 const ViewStudent = () => {
 const API_URL = 'https://school-api-2wqk.onrender.com/api/students/';
 
 const [studentDetails, setStudentDetails] = useState(null);
-// update the student
-const [showStudentTable, setShowStudentTable] = useState(true);
-
 
 useEffect(() => {
   viewStudentDetails();
