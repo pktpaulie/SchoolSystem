@@ -46,6 +46,7 @@ const deleteclub = id => {
           <th>ID</th>
           <th>Club Name</th>
           <th>Head of Club</th> 
+          <th>ACTIONS</th> 
           <th>Actions</th>
         </tr>
       </thead>
