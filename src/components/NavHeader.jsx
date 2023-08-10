@@ -13,8 +13,9 @@ import Department from './Department';
 import DepartmentForm from './DepartmentForm';
 import Students from './Students'
 import Home from './Home';
-
-import DeleteStaff from '../components/Staff/DeleteStaff';
+// 
+import ViewStudent from '../components/Student/ViewStudent';
+import UpdateStudent from '../components/Student/UpdateStudent';
 
 export default function NavHeader() {
   return (
@@ -37,6 +38,8 @@ export default function NavHeader() {
             <Nav.Link as={Link} to="/club">Club</Nav.Link> 
             <Nav.Link as={Link} to="/clubform">ClubForm</Nav.Link> 
             <Nav.Link as={Link} to="/departmentform">DepartmentForm</Nav.Link> 
+            {/* New clean links */}
+            <Nav.Link as={Link} to="/viewStudent">View Students</Nav.Link> 
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -55,6 +58,8 @@ export default function NavHeader() {
           <Route path='/courseform' element={<CourseForm />}></Route> 
           <Route path='/club' element={<Club />}></Route>
           <Route path='/clubform' element={<ClubForm />}></Route>
+          {/* New Routes */}
+          <Route path='/ViewStudent' element={<ViewStudent />}></Route>
         </Routes> 
    </div>
    </>
